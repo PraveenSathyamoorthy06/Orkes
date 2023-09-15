@@ -11,8 +11,10 @@ const App = () => {
                 'https://englishapi.pinkvilla.com/app-api/v1/photo-gallery-feed-page/page/2',
                 'https://englishapi.pinkvilla.com/app-api/v1/photo-gallery-feed-page/page/3']
 
+  // checks for the existing url
   const fetchGallery = () => url< 3 ? setUrl(++url) : null
 
+  //fetch data from server whenever url changes
   useEffect(() => {
     axios.get(`http://localhost:4000/fetchGallery?url=${urls[url]}`)
         .then(response => setData(prevData => [...prevData, ...response.data.nodes]))

@@ -4,11 +4,13 @@ import './Style.css'
 
 export const InfiniteGallery = ({gallery, fetchGallery}) => {
 
+  // call to fetch gallery from next url at the end of page
   const handleOnBottom = useCallback(() => {
     fetchGallery()
   }, [fetchGallery]);
   useBottomScrollListener(handleOnBottom);
 
+  // format date and time 
   const formatDate = (date) => {
     let options = { day: '2-digit', month: 'short', year: 'numeric' };
     const formattedDate = new Date(date).toLocaleDateString('en-US', options);
